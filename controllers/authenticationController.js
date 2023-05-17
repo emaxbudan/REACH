@@ -44,7 +44,7 @@ export const login = async(req, res) => {
         if(!user){
             res.status(404).json({sucess: false, meesage:"not Authorized"});
 
-        // if user exist 
+        // if user exists 
 
         }
         // correct password
