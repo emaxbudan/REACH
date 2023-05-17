@@ -5,11 +5,12 @@ import cors from "cors";
 import { config } from "dotenv";
 import cookieparser from "cookie-parser";
 import usersRouter from "./routes/userRoute.js";
-import tripRoute from "./routes/troute.js";
+import tripRoute from "./routes/tripRoute.js";
 //import  usersRouter from "./routes/userRoute.js";
 //import Router from "./routes/userRoute.js";
 //import router from "./routes/troute.js";
 import Router from "./routes/reservationRoute.js"
+import authenticationRouter from "./routes/authenticationRoute.js"
 
 config();
 const app = express();
@@ -18,10 +19,7 @@ const port = process.env.PORT || 8000;
 set("strictQuery", false);
 const connect = async()=>{ 
     try{
-        await connect(process.env.MONGO_URI,{
-            useNewUrlParser:true,
-            useUnifiedTopology:true
-        })
+        await connect("mongodb+srv://E-max:ODEYmHLnzZdMzMPD@e-max.x3szf9f.mongodb.net/reach?retryWrites=true&w=majority")
          console.log('MongoDB database connected');
          //res.end();
 
@@ -35,10 +33,10 @@ const connect = async()=>{
 app.use(json());
 app.use(cors());
 app.use(cookieparser());
-app.use('/troute', tripRoute);
+app.use('/tripRoute', tripRoute);
 app.use('/userRoute', usersRouter);
 app.use("/reservationRoute", Router);
-
+app.use("/authenticationRoute", authenticationRouter);
 //try{
  //   throw new Error("checkout Code");
 //}catch (err) {
@@ -47,7 +45,7 @@ app.use("/reservationRoute", Router);
  //   console.log("I guess you should rest now");
 //}
 
-connect().then(() => {
+mongoose.connect("mongodb+srv://E-max:ODEYmHLnzZdMzMPD@e-max.x3szf9f.mongodb.net/reach?retryWrites=true&w=majority").then(() => {
     app.listen(port, ()=>{
         console.log('server listening to port', port);
     });
@@ -56,6 +54,9 @@ connect().then(() => {
 app.get("/", (_req, res)=>{
     res.send("API is responding");
 });
+
+
+
 
 
 //module.exports = mongoose;

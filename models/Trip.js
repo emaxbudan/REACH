@@ -7,11 +7,11 @@ const tripSchema = new mongoose.Schema ({
         require: true,
         unique: true,
     },
-    city: {
+    from: {
         type: String,
         required: true,
     },
-    address: {
+    to: {
         type: String,
         reuired: true,
     },
@@ -46,9 +46,10 @@ const tripSchema = new mongoose.Schema ({
         type: Boolean,
         default: false,
     },
-},
-{timesstamps: true}
-);
+})
+// },
+// {timesstamps: true}
+ 
 
 export default mongoose.model("Trip", tripSchema);
 //module.exports = mongoose('Trip', tripSchema);

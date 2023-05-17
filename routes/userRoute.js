@@ -1,7 +1,7 @@
 import { Router } from "express";
 //import express from 'express';
-import { getAllUsers, getSingleUser, addUser, deleteUser, register, login, } from "../controllers/usercontroller.js";
-import { checkAdmin} from "../middlewares/AuthMiddleWare.js";
+import { getAllUsers, getSingleUser, deleteUser, addUser, updateUser } from "../controllers/usercontroller.js";
+//import { checkAdmin} from "../middlewares/AuthMiddleWare.js";
 
 const router = Router();
 
@@ -9,22 +9,17 @@ const router = Router();
 router.get('/', getAllUsers);
 
  //get single user
-router.get('/:userId', getSingleUser);
+router.get('/:Id', getSingleUser);
 
-//login
-router.post("/login", checkAdmin, login);
-
-//register
-router.post("/register", register);
 
  //add new user
 router.post('/', addUser);
 
  //update user
-//router.patch('/:userId', updateUser);
+router.put('/:Id', updateUser);
 
  //delete user
-router.delete('/:userId', deleteUser);
+router.delete('/:Id', deleteUser);
 
 export default router;
 

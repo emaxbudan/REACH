@@ -1,18 +1,20 @@
 {
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.2.0",
-    "mongoose": "^7.0.3"
+    "mongoose": "^7.0.3",
+    "zod": "^3.21.4"
   },
   "name": "reach",
   "version": "1.0.0",
-  "type": "module",   
+  "type": "module",
   "main": "reach.js",
-  "devDependencies": {},
   "scripts": {
     "start": "node reach.js",
     "start-dev": "nodemon index.js"
@@ -20,5 +22,4 @@
   "author": "Emmanuel Budan",
   "license": "ISC",
   "description": ""
-  
 }

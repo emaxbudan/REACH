@@ -1,59 +1,95 @@
-let reservation = [];
-//import reservation from "../models/reservation.js";
-
-
- //reservationController = {
-   //getAllReservations: async (req, res) => {
-    //const reservations = await reservations.find({});
-   // res.status(200).json({
-    //  data: reservations
-  //  });
- // },
+import Reservation from "../models/Reservation.js";
 
  
-  export function addReservation(req, res){
-    reservation = reservation.push({
-      ...req.body, id: (reservation.length + 1).toString()
 
-    });
-    res.send("Your Reservation as been placed Successfully!!").end;
+ 
+export const createResevation = async (req, res) =>{
+  const newReservation  =new Reservation(req.body); 
+  try{ 
+    const savedReservation = await newReservation.save();
+    res.status(200).json({success: true, message: "Your reservation has been placed successfully", data: savedReservation});
+    console.log("e work");
+  }catch (error){
+    console.log(error)
+    res.status(500).json({success: false, message: "Failed to place your reservation. Try again"});
   }
+};
 
-  export function getAllReservations(req, res) {
-    res.satus(reservation).end();
-  }
 
-   //function createReservation: async (req, res) => {
-   // const reservation = await reservation.create({
-   //   name: req.body.name,
-   //   date: req.body.date,
-   //   time: req.body.time,
-   //   guests: req.body.guests
-   // });
-  //  res.status(200).json({
-   //   data: reservation
-   // });
- // },
+  //  export function addReservation(req, res){
+    
+  //    const newReservation = Reservations.create({
+  //      ...req.body, id: (newReservation.length + 1).toString()
+     
+  //    });
+  //   res.send("Your Reservation as been placed Successfully!!").end;
+  //  }
 
- export function getSingleReservation(req,res){
-  const reservation = reservation.find(r => r.id === req.params.reservationby_Id);
-  res.send(reservation).end;
- }
+  //  export async function addReservation(req,res){
+  //     try{
+  //        let reservation = await Reservations.create({
+  //          name: req.body.name,
+  //          date: req.body.date,
+  //          time: req.body.time,
+  //          seatNumer: req.body.seatNumer
+  //        })
 
-   export function updateReservation(req, res) {
-     reservation = reservation.findByIdAndUpdate(
-      { _id: req.params.id },
-     req.body
-    );
-    res.status(200).json({
-      data: reservation
-    });
-  }
-
- // deleteReservation: async (req, res) => {
- // },
+  //       res.status(200).json(reservation);
+  //      }catch(e){
+  //        res.status(500).json(e).end()
+  //      }
+      
+  //    }
+ 
   
-    export function deleteReservation(req, res) {
-      reservation = users.filter(r => r.id !== req.params.userId);
-       res.send("reservation deleted").end();
+
+  // export function getAllReservations(req, res) {
+  //   res.send(Reservations).end();
+  // }
+
+export const getAllReservations= async (req,res) =>{
+   // For getting pages
+   const page = parseInt(req.query.page)
+   console.log(page);
+  try{
+    const reservation = await Reservation.find({});
+    res.status(200).json({success: true, message:"Successful", data: reservation});
+  }catch(error){
+    res.status(500).json({success: false, message: "failed"});
+  }
+};
+
+
+
+export const getSingleReservation = async (req, res) =>{
+  const id = req.params.id
+  try{
+    const singleReservation = await Reservation.findById(id, {$set:req.body}, {new:true});
+    res.status(200).json({success: true, message:"Successful", data: singleReservation});
+  }catch (error){
+    res.status(500).json({success: false, message:"Failed"});
+  }
+};
+
+
+
+   export const updateReservation = async(req, res) => {
+    const id = req.params.id
+  try{
+    const updatedReservation = await Reservation.findByIdAndUpdate(id, {$set:req.body}, {new:true});
+      res.status(200).json({success: true, message: "sucessful", data: updatedReservation});
+    }catch (error){
+      console.log(error)
+      res.status(500).json({success: false, message:"failed to update reservation"});
     }
+  };
+
+ export const deleteReservation = async (req, res) => {
+  try{
+    const  deletedReservation = await Reservation.findByIdAndDelete( { _id: req.params.id },
+      req.body);
+       res.status(200).json({success: true, message:"Deleted", data: deletedReservation});
+    }catch (error){
+      console.log(error)
+    }
+ };
