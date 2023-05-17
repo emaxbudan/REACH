@@ -19,7 +19,7 @@ const port = process.env.PORT || 8000;
 set("strictQuery", false);
 const connect = async()=>{ 
     try{
-        await connect("mongodb+srv://E-max:ODEYmHLnzZdMzMPD@e-max.x3szf9f.mongodb.net/reach?retryWrites=true&w=majority")
+        await connect("MONGO_URI")
          console.log('MongoDB database connected');
          //res.end();
 
@@ -45,7 +45,7 @@ app.use("/authenticationRoute", authenticationRouter);
  //   console.log("I guess you should rest now");
 //}
 
-mongoose.connect("mongodb+srv://E-max:ODEYmHLnzZdMzMPD@e-max.x3szf9f.mongodb.net/reach?retryWrites=true&w=majority").then(() => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
     app.listen(port, ()=>{
         console.log('server listening to port', port);
     });
