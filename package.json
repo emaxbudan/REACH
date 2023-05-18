@@ -16,7 +16,7 @@
   "type": "module",
   "main": "reach.js",
   "scripts": {
-    "start": "node reach.js",
+    "start": "node index.js",
     "start-dev": "nodemon index.js"
   },
   "author": "Emmanuel Budan",
