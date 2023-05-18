@@ -32,7 +32,7 @@ export const register = async (req, res) => {
 
 // user login
 export const login = async(req, res) => {
-    const validatedData = loginValidation.userValidation.safeparse(req.body);
+    const validatedData = loginValidation.userValidation.safeParse(req.body);
     //console.log(validatedData)
     if(!validatedData.success){
         res.status(400).json(errormessage.formatZodError(validatedData.error)).end()
