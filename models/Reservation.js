@@ -12,8 +12,7 @@ const reservationSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: true
-  }
-  ,
+  },
   time: {
     type: String,
     required: true
@@ -21,7 +20,17 @@ const reservationSchema = new mongoose.Schema({
   seatNumber: {
     type: Number,
     required: true
+  },
+  from:{
+    type: String,
+    required: true
+  },
+  to: {
+    trype: String,
+    required: true
   }
 });
 
-export default mongoose.model('reservation', reservationSchema)
+//Es6 methods
+
+export const reservationModel = mongoose.model('Reservation', reservationSchema)

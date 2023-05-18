@@ -6,7 +6,7 @@ router.get('/', getAllReservations);
 router.post('/', createResevation);
 router.put('/:id', updateReservation);
 router.delete('/:id', deleteReservation);
-router.get('/:id', getSingleReservation);
+router.get('/:id', getSingleReservation)
 //router.post("/", addReservation);
 
 export default router;
