@@ -27,6 +27,5 @@ const reservationSchema = new mongoose.Schema({
 });
 
 //Es6 modules is to see how it works 
-// Hey try to understand the commenting up
 
 export const reservationModel = mongoose.model('Reservation', reservationSchema)

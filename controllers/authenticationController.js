@@ -35,7 +35,8 @@ export const login = async(req, res) => {
     const validatedData = loginValidator.safeParse(req.body);
     //console.log(validatedData)
     if(!validatedData.success){
-        res.status(400).json(errormessage.formatZodError(validatedData.error)).end()
+         res.status(400).json((validatedData.error)).end()
+    
 
      try{
         const email = req.body.email
