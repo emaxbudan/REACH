@@ -2,7 +2,7 @@ import users from "../models/users.js";
 import bcrypt from "bcrypt"
 // import  validator from "../validations/userValidation.js";
 
-import  loginValidation from "../validations/userValidation.js";
+import  {loginValidator} from "../validations/userValidation.js";
 
 // register
 export const register = async (req, res) => {
@@ -32,7 +32,7 @@ export const register = async (req, res) => {
 
 // user login
 export const login = async(req, res) => {
-    const validatedData = loginValidation.userValidation.safeParse(req.body);
+    const validatedData = loginValidator.safeParse(req.body);
     //console.log(validatedData)
     if(!validatedData.success){
         res.status(400).json(errormessage.formatZodError(validatedData.error)).end()

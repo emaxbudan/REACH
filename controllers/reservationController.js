@@ -1,6 +1,7 @@
-import Reservation from "../models/Reservation.js";
+import * as Model from "../models/Reservation.js";
 
- 
+const Reservation = Model.reservationModel;
+
 
  
 export const createResevation = async (req, res) =>{

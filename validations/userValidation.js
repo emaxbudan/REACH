@@ -19,7 +19,6 @@ export const loginValidator = z.object({
     password: z.string().min(6).max(24).trim()
 
 })
-export default loginValidator 
 
 // module.exports = {
 //     registerValidator,

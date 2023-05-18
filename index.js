@@ -9,7 +9,7 @@ import tripRoute from "./routes/tripRoute.js";
 //import  usersRouter from "./routes/userRoute.js";
 //import Router from "./routes/userRoute.js";
 //import router from "./routes/troute.js";
-//import Router from "./routes/reservationRoute.js"
+import reservationRouter from "./routes/reservationRoute.js"
 import authenticationRouter from "./routes/authenticationRoute.js"
 
 config();
@@ -35,7 +35,7 @@ app.use(cors());
 app.use(cookieparser());
 app.use('/tripRoute', tripRoute);
 app.use('/userRoute', usersRouter);
-//app.use("/reservationRoute", Router);
+app.use("/reservationRoute", reservationRouter);
 app.use("/authenticationRoute", authenticationRouter);
 //try{
  //   throw new Error("checkout Code");
