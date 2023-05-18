@@ -16,36 +16,9 @@ export const createResevation = async (req, res) =>{
 };
 
 
-  //  export function addReservation(req, res){
-    
-  //    const newReservation = Reservations.create({
-  //      ...req.body, id: (newReservation.length + 1).toString()
-     
-  //    });
-  //   res.send("Your Reservation as been placed Successfully!!").end;
-  //  }
-
-  //  export async function addReservation(req,res){
-  //     try{
-  //        let reservation = await Reservations.create({
-  //          name: req.body.name,
-  //          date: req.body.date,
-  //          time: req.body.time,
-  //          seatNumer: req.body.seatNumer
-  //        })
-
-  //       res.status(200).json(reservation);
-  //      }catch(e){
-  //        res.status(500).json(e).end()
-  //      }
-      
-  //    }
- 
   
 
-  // export function getAllReservations(req, res) {
-  //   res.send(Reservations).end();
-  // }
+ 
 
 export const getAllReservations= async (req,res) =>{
    // For getting pages
