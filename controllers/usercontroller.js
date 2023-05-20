@@ -99,7 +99,7 @@ export const getSingleUser = async(req, res) => {
     const id = req.params.id; 
     try{
         const singleUser = await users.findById(id);
-        res.status(200).json({success: true, message:"Successful", data:singleUser});
+        res.status(200).json({success: true, message:"Successful", data: singleUser});
     }catch(error){
         console.log(error)
         res.status(404).json({success:false, message:"User not found"});

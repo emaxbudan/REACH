@@ -38,7 +38,7 @@ export const getAllReservations= async (req,res) =>{
 export const getSingleReservation = async (req, res) =>{
   const id = req.params.id
   try{
-    const singleReservation = await Reservation.findById(id, {$set:req.body}, {new:true});
+    const singleReservation = await Reservation.findById(id);
     res.status(200).json({success: true, message:"Successful", data: singleReservation});
   }catch (error){
     res.status(500).json({success: false, message:"Failed"});

@@ -33,9 +33,15 @@ export const register = async (req, res) => {
 // user login
 export const login = async(req, res) => {
     const validatedData = loginValidator.safeParse(req.body);
-    //console.log(validatedData)
+
+    //console.log(!validatedData)
+    if(validatedData.success){
+    res.status(200).json((validatedData.success)).end()
+    }
+
     if(!validatedData.success){
          res.status(400).json((validatedData.error)).end()
+    
     
 
      try{

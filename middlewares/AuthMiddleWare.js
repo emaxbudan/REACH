@@ -9,7 +9,6 @@ export function checkAdmin(req, res, next) {
     if ( !Admin ) res.send("permission Denied").end();
 
     next();
-
 }
 
 //module.exports ={
