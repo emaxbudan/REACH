@@ -9,9 +9,7 @@ const reservationSchema = new mongoose.Schema({
     type: String,
     // required: true
 },
-  date: {
-    type: Date,
-  },
+ 
   time: {
     type: String,
   },
@@ -21,9 +19,12 @@ const reservationSchema = new mongoose.Schema({
   from:{
     type: String,
   },
-  to: {
-    trype: String,
-  }
+  to:{
+    type: String,
+  },
+  date:{
+    type: String,
+  },
 });
 
 //Es6 modules is to see how it works 

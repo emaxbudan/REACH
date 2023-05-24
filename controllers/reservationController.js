@@ -9,7 +9,7 @@ export const createResevation = async (req, res) =>{
   try{ 
     const savedReservation = await newReservation.save();
     res.status(200).json({success: true, message: "Your reservation has been placed successfully", data: savedReservation});
-    console.log("e work");
+    console.log("e work 😁");
   }catch (error){
     console.log(error)
     res.status(500).json({success: false, message: "Failed to place your reservation. Try again"});

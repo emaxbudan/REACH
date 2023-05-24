@@ -4,8 +4,8 @@ import mongoose from "mongoose";
 const tripSchema = new mongoose.Schema ({
     title: {
         type: String,
-        require: true,
-        unique: true,
+        // require: true,
+        // unique: true,
     },
     from: {
         type: String,
@@ -17,23 +17,19 @@ const tripSchema = new mongoose.Schema ({
     },
     distance: {
         type: Number,
-        required: true,
+
     },
     photo: {
         type: String,
-        required: true,
     },
     vehicle_number: {
         type: Number,
-        required: true,
     },
     price: {
         type: Number,
-        required: true,
     },
     vehicle_capacity: {
         type: Number,
-        required: true,
     },
     reviews: [
         {
