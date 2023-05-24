@@ -10,12 +10,12 @@ const reservationSchema = new mongoose.Schema({
     // required: true
 },
  
-  time: {
-    type: String,
-  },
-  seatNumber: {
-    type: Number,
-  },
+  // time: {
+  //   type: String,
+  // },
+  // seatNumber: {
+  //   type: Number,
+  // },
   from:{
     type: String,
   },
