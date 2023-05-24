@@ -9,11 +9,9 @@ const tripSchema = new mongoose.Schema ({
     },
     from: {
         type: String,
-        required: true,
     },
     to: {
         type: String,
-        reuired: true,
     },
     distance: {
         type: Number,
@@ -30,6 +28,12 @@ const tripSchema = new mongoose.Schema ({
     },
     vehicle_capacity: {
         type: Number,
+    },
+    bus_type: {
+        type: String,
+    },
+    departure_time: {
+        type: String,
     },
     reviews: [
         {

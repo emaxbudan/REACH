@@ -34,7 +34,6 @@ const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      unique: true,
     },
     email: {
       type: String,
@@ -44,12 +43,18 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+      unique: true,
     },
 
     photo: {
       type: String,
     },
-
+    location: {
+      type: String,
+    },
+    date: {
+      type: Date,
+    },
     role: {
       type: String,
       default: "user",
