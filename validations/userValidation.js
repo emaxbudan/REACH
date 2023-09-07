@@ -20,8 +20,3 @@ export const loginValidator = z.object({
 
 })
 
-// module.exports = {
-//     registerValidator,
-//     updateValidator,
-//     loginValidator
-// }
